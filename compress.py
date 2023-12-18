@@ -91,6 +91,12 @@ def compression():
             z['src'] = f'data:image/png;base64,{image_encoded}'
 
     output_file = open(f"{original_location}/output.html", "w")
-    output_file.write(str(doc))
+
+    result_string = ''
+    for string in str(doc).splitlines():
+        print(string)
+        if string != '':
+            result_string += string+'\n'
+    output_file.write(result_string)
     output_file.close()
     return str(doc)
